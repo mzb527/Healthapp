@@ -1,54 +1,58 @@
+// src/pages/Nutrition.jsx
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 
 const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+  text-align: center;
+  padding-top: 80px;
 `;
 
-const Header = styled.h1`
-  margin-top: 80px;
-  font-size: 36px;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
+const MenuGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 600px;
 `;
 
-const FloatingButton = styled.button`
-  background-color: #ff8c00;
-  color: white;
-  padding: 15px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
+const MenuButton = styled.button`
+  padding: 20px;
+  font-size: 16px;
+  background-color: #fff3e0;
+  border: 2px solid #ff9800;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
-
+  transition: background-color 0.2s ease;
+  
   &:hover {
-    background-color: #e07a00;
-    transform: scale(1.05);
+    background-color: #ffe0b2;
   }
 `;
 
 function Nutrition() {
   return (
-    <PageContainer>
+    <>
       <Navbar />
-      <Header>Nutrition</Header>
-      <ButtonWrapper>
-        <FloatingButton>Button 1</FloatingButton>
-        <FloatingButton>Button 2</FloatingButton>
-        <FloatingButton>Button 3</FloatingButton>
-        <FloatingButton>Button 4</FloatingButton>
-      </ButtonWrapper>
-    </PageContainer>
+      <PageContainer>
+        <h1>Nutrition</h1>
+        <MenuGrid>
+          <Link to="/nutrition/log">
+            <MenuButton>Log Meals</MenuButton>
+          </Link>
+          <Link to="/nutrition/history">
+            <MenuButton>Nutrition History</MenuButton>
+          </Link>
+          <Link to="/nutrition/tracker">
+            <MenuButton>Calorie Tracker</MenuButton>
+          </Link>
+          <Link to="/nutrition/insights">
+            <MenuButton>Nutrition Insights</MenuButton>
+          </Link>
+        </MenuGrid>
+      </PageContainer>
+    </>
   );
 }
 
