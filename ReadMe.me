@@ -1,0 +1,81 @@
+Full-Stack Fitness Tracker MVP
+A streamlined web application for logging workouts and meals, tracking calories, and viewing simple health insights. Built with React, Node.js, and MongoDB.
+Project Overview
+This MVP empowers users to:
+- Log workouts with activity type, duration, and calories
+- Track meals with nutritional details
+- View historical data and simple stats
+- Register and log in securely with JWT authentication
+The application is built with modular architecture and a focus on usability, allowing for clear separation between frontend and backend responsibilities.
+Tech Stack
+Frontend:
+- React with React Router
+- styled-components
+Backend:
+- Node.js + Express
+- MongoDB + Mongoose
+- Authentication via JWT
+- Validation with express-validator
+- Middleware: helmet, morgan, cors
+Folder Structure
+project/
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── App.jsx
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   └── app.js
+└── README.md
+
+
+Getting Started
+1. Backend Setup
+cd backend
+npm install
+touch .env
+
+
+.env file:
+PORT=5000
+MONGO_URI=mongodb://localhost/fitness_tracker
+JWT_SECRET=yourSecretKey
+
+
+Run the server:
+npm run dev
+
+
+2. Frontend Setup
+cd ../frontend
+npm install
+npm start
+
+
+Frontend runs on http://localhost:3000. Backend runs on http://localhost:5000.
+API Overview
+Auth:
+- POST /api/auth/register – create user
+- POST /api/auth/login – returns JWT
+Exercise:
+- GET /api/exercise – all workouts
+- POST /api/exercise – add workout
+Nutrition:
+- GET /api/nutrition – all meals
+- POST /api/nutrition – add meal
+Features
+- Modular routing for Exercise and Nutrition
+- Secure registration/login with hashed passwords and JWT
+- React frontend with page-based routing and styled layouts
+- Basic form validation and error handling
+- Easily extensible structure for scaling post-MVP
+Future Improvements
+- User-specific data isolation
+- Protected frontend routes using JWT
+- Persistent auth state and logout
+- Expanded analytics and goal setting
+- Deployment pipeline for production
